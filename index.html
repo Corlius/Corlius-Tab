@@ -256,203 +256,217 @@
         }
     </style>
     <script>
-    const wallpapers = [
-        'Wallpapers/DarkGlassRectangles.jpg',
-        'Wallpapers/DarkGlassRectanglesGray.jpg',
-        'Wallpapers/DarkGlassRectanglesPurple.jpg',
-        'Wallpapers/DarkGlassRound.jpg',
-        'Wallpapers/DarkGlassRoundPurple.jpg',
-        'Wallpapers/DarkMetalRectangles.jpg',
-        'Wallpapers/DarkWaves.jpg',
-        'Wallpapers/LightGlass.jpg',
-        'Wallpapers/LightGlassOcean.jpg',
-        'Wallpapers/LightGlassPurple.jpg',
-        'Wallpapers/LightGlassPurpleBands.jpg',
-        'Wallpapers/LightGlassRectanglesPurple.jpg',
-        'Wallpapers/LightMetalRectangles.jpg',
-        'Wallpapers/LightWaves.jpg'
-    ];
+        const wallpapers = [
+            "Wallpapers/DarkGlassDimond.jpg",
+            "Wallpapers/DarkGlassRectangles.jpg",
+            "Wallpapers/DarkGlassRectanglesGray.jpg",
+            "Wallpapers/DarkGlassRectanglesPurple.jpg",
+            "Wallpapers/DarkGlassRound.jpg",
+            "Wallpapers/DarkGlassRoundPurple.jpg",
+            "Wallpapers/DarkGlassRounded.jpg",
+            "Wallpapers/DarkMetalBand.jpg",
+            "Wallpapers/DarkMetalRectangles.jpg",
+            "Wallpapers/DarkMetalStack.jpg",
+            "Wallpapers/DarkRayBall.jpg",
+            "Wallpapers/DarkWaves.jpg",
+            "Wallpapers/DarkWindowsPantone.jpg",
+            "Wallpapers/DrakCirclePurple.jpg",
+            "Wallpapers/LightGlass.jpg",
+            "Wallpapers/LightGlassCube.jpg",
+            "Wallpapers/LightGlassOcean.jpg",
+            "Wallpapers/LightGlassPaved.jpg",
+            "Wallpapers/LightGlassPurple.jpg",
+            "Wallpapers/LightGlassPurpleBands.jpg",
+            "Wallpapers/LightGlassRectanglesPurple.jpg",
+            "Wallpapers/LightMetalBand.jpg",
+            "Wallpapers/LightMetalRectangles.jpg",
+            "Wallpapers/LightMetalStack.jpg",
+            "Wallpapers/LightRoundStackGold.jpg",
+            "Wallpapers/LightRoundStackRed.jpg",
+            "Wallpapers/LightWaves.jpg",
+            "Wallpapers/LightWindowsPantone.jpg",
+        ];
 
-    const searchEngines = [
-        {
-            name: 'Google',
-            url: 'https://www.google.com/search',
-            icon: 'google.png',
-            queryParam: 'q'
-        },
-        {
-            name: 'Bing',
-            url: 'https://www.bing.com/search',
-            icon: 'bing.png',
-            queryParam: 'q'
-        },
-        {
-            name: 'Baidu',
-            url: 'https://www.baidu.com/s',
-            icon: 'baidu.png',
-            queryParam: 'wd'
-        }
-    ];
-
-    const defaultLightWallpaper = 'Wallpapers/LightGlass.jpg';
-    const defaultDarkWallpaper = 'Wallpapers/DarkGlassRound.jpg';
-    const defaultSearchEngine = 'Google';
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const lightWallpaper = localStorage.getItem('lightWallpaper') || defaultLightWallpaper;
-        const darkWallpaper = localStorage.getItem('darkWallpaper') || defaultDarkWallpaper;
-        const selectedSearchEngine = localStorage.getItem('searchEngine') || defaultSearchEngine;
-
-        document.documentElement.style.setProperty('--light-wallpaper', `url(${lightWallpaper})`);
-        document.documentElement.style.setProperty('--dark-wallpaper', `url(${darkWallpaper})`);
-
-        updateTime();
-        setInterval(updateTime, 60000);
-
-        const searchInput = document.querySelector('.search-box input[type="text"]');
-        searchInput.focus();
-        document.onkeydown = function(e) {
-            const focusElement = document.activeElement;
-            if (e.key === '/' && focusElement !== searchInput) {
-                e.preventDefault();
-                searchInput.focus();
+        const searchEngines = [
+            {
+                name: 'Google',
+                url: 'https://www.google.com/search',
+                icon: 'google.png',
+                queryParam: 'q'
+            },
+            {
+                name: 'Bing',
+                url: 'https://www.bing.com/search',
+                icon: 'bing.png',
+                queryParam: 'q'
+            },
+            {
+                name: 'Baidu',
+                url: 'https://www.baidu.com/s',
+                icon: 'baidu.png',
+                queryParam: 'wd'
             }
-        };
+        ];
 
-        const settingsButton = document.querySelector('.settings-icon');
-        const settingsMenu = document.querySelector('.settings-menu');
-        const lightWallpaperSelect = document.querySelector('#light-wallpaper-select');
-        const darkWallpaperSelect = document.querySelector('#dark-wallpaper-select');
-        const searchEngineSelect = document.querySelector('#search-engine-select');
-        const searchForm = document.querySelector('.search-box form');
+        const defaultLightWallpaper = 'Wallpapers/LightGlass.jpg';
+        const defaultDarkWallpaper = 'Wallpapers/DarkGlassRound.jpg';
+        const defaultSearchEngine = 'Google';
 
-        settingsButton.addEventListener('click', (event) => {
-            const isVisible = settingsMenu.style.display === 'block';
-            settingsMenu.style.display = isVisible ? 'none' : 'block';
-            event.stopPropagation();
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightWallpaper = localStorage.getItem('lightWallpaper') || defaultLightWallpaper;
+            const darkWallpaper = localStorage.getItem('darkWallpaper') || defaultDarkWallpaper;
+            const selectedSearchEngine = localStorage.getItem('searchEngine') || defaultSearchEngine;
 
-        document.addEventListener('click', (event) => {
-            if (settingsMenu.style.display === 'block' && !settingsMenu.contains(event.target)) {
-                settingsMenu.style.display = 'none';
-            }
-        });
+            document.documentElement.style.setProperty('--light-wallpaper', `url(${lightWallpaper})`);
+            document.documentElement.style.setProperty('--dark-wallpaper', `url(${darkWallpaper})`);
 
-        wallpapers.forEach(file => {
-            const option = document.createElement('option');
-            option.value = file;
+            updateTime();
+            setInterval(updateTime, 60000);
 
-            const wrapper = document.createElement('div');
-            wrapper.className = 'wallpaper-option';
-
-            const img = document.createElement('img');
-            img.src = file;
-            img.alt = file;
-                
-            const span = document.createElement('span');
-            span.textContent = file.split('/').pop().replace('.jpg', '');
-
-            wrapper.appendChild(img);
-            wrapper.appendChild(span);
-            option.appendChild(wrapper);
-
-            lightWallpaperSelect.appendChild(option.cloneNode(true));
-            darkWallpaperSelect.appendChild(option.cloneNode(true));
-        });
-
-        searchEngines.forEach(engine => {
-            const option = document.createElement('option');
-            option.value = engine.name;
-
-            const wrapper = document.createElement('div');
-            wrapper.className = 'search-engine-option';
-
-            const img = document.createElement('img');
-            img.src = engine.icon;
-            img.alt = engine.name;
-
-            const span = document.createElement('span');
-            span.textContent = engine.name;
-
-            wrapper.appendChild(img);
-            wrapper.appendChild(span);
-            option.appendChild(wrapper);
-
-            searchEngineSelect.appendChild(option);
-        });
-
-        lightWallpaperSelect.value = lightWallpaper;
-        darkWallpaperSelect.value = darkWallpaper;
-        searchEngineSelect.value = selectedSearchEngine;
-
-        updateSearchFormAction(selectedSearchEngine);
-
-        searchEngineSelect.addEventListener('change', (e) => {
-            const selectedEngine = e.target.value;
-            updateSearchFormAction(selectedEngine);
-            localStorage.setItem('searchEngine', selectedEngine);
-        });
-
-        lightWallpaperSelect.addEventListener('change', (e) => {
-            const selectedWallpaper = e.target.value;
-            document.documentElement.style.setProperty('--light-wallpaper', `url(${selectedWallpaper})`);
-            localStorage.setItem('lightWallpaper', selectedWallpaper);
-        });
-
-        darkWallpaperSelect.addEventListener('change', (e) => {
-            const selectedWallpaper = e.target.value;
-            document.documentElement.style.setProperty('--dark-wallpaper', `url(${selectedWallpaper})`);
-            localStorage.setItem('darkWallpaper', selectedWallpaper);
-        });
-
-        function updateSearchFormAction(selectedEngine) {
-            const selectedEngineData = searchEngines.find(engine => engine.name === selectedEngine);
-            searchForm.action = selectedEngineData.url;
-            searchForm.onsubmit = (event) => {
-                event.preventDefault();
-                const query = searchInput.value;
-                const searchURL = `${selectedEngineData.url}?${selectedEngineData.queryParam}=${encodeURIComponent(query)}`;
-                window.location.href = searchURL;
+            const searchInput = document.querySelector('.search-box input[type="text"]');
+            searchInput.focus();
+            document.onkeydown = function(e) {
+                const focusElement = document.activeElement;
+                if (e.key === '/' && focusElement !== searchInput) {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
             };
-        }
-    });
 
-    function updateTime() {
-        const timeDisplay = document.querySelector('.time-display');
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const timeString = `${hours}:${minutes}`;
-        timeDisplay.textContent = timeString;
-    }
-</script>
+            const settingsButton = document.querySelector('.settings-icon');
+            const settingsMenu = document.querySelector('.settings-menu');
+            const lightWallpaperSelect = document.querySelector('#light-wallpaper-select');
+            const darkWallpaperSelect = document.querySelector('#dark-wallpaper-select');
+            const searchEngineSelect = document.querySelector('#search-engine-select');
+            const searchForm = document.querySelector('.search-box form');
+
+            settingsButton.addEventListener('click', (event) => {
+                const isVisible = settingsMenu.style.display === 'block';
+                settingsMenu.style.display = isVisible ? 'none' : 'block';
+                event.stopPropagation();
+            });
+
+            document.addEventListener('click', (event) => {
+                if (settingsMenu.style.display === 'block' && !settingsMenu.contains(event.target)) {
+                    settingsMenu.style.display = 'none';
+                }
+            });
+
+            wallpapers.forEach(file => {
+                const option = document.createElement('option');
+                option.value = file;
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'wallpaper-option';
+
+                const img = document.createElement('img');
+                img.src = file;
+                img.alt = file;
+
+                const span = document.createElement('span');
+                span.textContent = file.split('/').pop().replace('.jpg', '');
+
+                wrapper.appendChild(img);
+                wrapper.appendChild(span);
+                option.appendChild(wrapper);
+
+                lightWallpaperSelect.appendChild(option.cloneNode(true));
+                darkWallpaperSelect.appendChild(option.cloneNode(true));
+            });
+
+            searchEngines.forEach(engine => {
+                const option = document.createElement('option');
+                option.value = engine.name;
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'search-engine-option';
+
+                const img = document.createElement('img');
+                img.src = engine.icon;
+                img.alt = engine.name;
+
+                const span = document.createElement('span');
+                span.textContent = engine.name;
+
+                wrapper.appendChild(img);
+                wrapper.appendChild(span);
+                option.appendChild(wrapper);
+
+                searchEngineSelect.appendChild(option);
+            });
+
+            lightWallpaperSelect.value = lightWallpaper;
+            darkWallpaperSelect.value = darkWallpaper;
+            searchEngineSelect.value = selectedSearchEngine;
+
+            updateSearchFormAction(selectedSearchEngine);
+
+            searchEngineSelect.addEventListener('change', (e) => {
+                const selectedEngine = e.target.value;
+                updateSearchFormAction(selectedEngine);
+                localStorage.setItem('searchEngine', selectedEngine);
+            });
+
+            lightWallpaperSelect.addEventListener('change', (e) => {
+                const selectedWallpaper = e.target.value;
+                document.documentElement.style.setProperty('--light-wallpaper', `url(${selectedWallpaper})`);
+                localStorage.setItem('lightWallpaper', selectedWallpaper);
+            });
+
+            darkWallpaperSelect.addEventListener('change', (e) => {
+                const selectedWallpaper = e.target.value;
+                document.documentElement.style.setProperty('--dark-wallpaper', `url(${selectedWallpaper})`);
+                localStorage.setItem('darkWallpaper', selectedWallpaper);
+            });
+
+            function updateSearchFormAction(selectedEngine) {
+                const selectedEngineData = searchEngines.find(engine => engine.name === selectedEngine);
+                searchForm.action = selectedEngineData.url;
+                searchForm.onsubmit = (event) => {
+                    event.preventDefault();
+                    const query = searchInput.value;
+                    const searchURL = `${selectedEngineData.url}?${selectedEngineData.queryParam}=${encodeURIComponent(query)}`;
+                    window.location.href = searchURL;
+                };
+            }
+        });
+
+        function updateTime() {
+            const timeDisplay = document.querySelector('.time-display');
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}`;
+            timeDisplay.textContent = timeString;
+        }
+    </script>
 </head>
 <body>
-<div class="time-display-container">
-    <div class="time-display"></div>
-</div>
-<div class="search-box">
-    <form method="GET">
-        <input type="text" name="q" placeholder="Search Anything...">
-        <input type="submit" value="Search">
-    </form>
-</div>
-<div class="github-icon">
-    <a href="https://github.com/Corlius/Corlius-Tab" target="_blank">
-        <img src="https://github.githubassets.com/favicons/favicon.svg" alt="GitHub">
-    </a>
-</div>
-<div class="settings-icon">
-    <img src="settings.png" alt="Settings">
-</div>
-<div class="settings-menu">
-    <label for="search-engine-select">Search Engine:</label>
-    <select id="search-engine-select"></select>
-    <label for="light-wallpaper-select">Light Wallpaper:</label>
-    <select id="light-wallpaper-select"></select>
-    <label for="dark-wallpaper-select">Dark Wallpaper:</label>
-    <select id="dark-wallpaper-select"></select>
-    <button class="preview-button" onclick="window.open('./preview.html', '_blank');">Preview Wallpapers</button>
-</div>
+    <div class="time-display-container">
+        <div class="time-display"></div>
+    </div>
+    <div class="search-box">
+        <form method="GET">
+            <input type="text" name="q" placeholder="Search Anything...">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <div class="github-icon">
+        <a href="https://github.com/Corlius/Corlius-Tab" target="_blank">
+            <img src="https://github.githubassets.com/favicons/favicon.svg" alt="GitHub">
+        </a>
+    </div>
+    <div class="settings-icon">
+        <img src="settings.png" alt="Settings">
+    </div>
+    <div class="settings-menu">
+        <label for="search-engine-select">Search Engine:</label>
+        <select id="search-engine-select"></select>
+        <label for="light-wallpaper-select">Light Wallpaper:</label>
+        <select id="light-wallpaper-select"></select>
+        <label for="dark-wallpaper-select">Dark Wallpaper:</label>
+        <select id="dark-wallpaper-select"></select>
+        <button class="preview-button" onclick="window.open('./preview.html', '_blank');">Preview Wallpapers</button>
+    </div>
 </body>
 </html>
