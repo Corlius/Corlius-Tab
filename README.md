@@ -19,7 +19,7 @@
 
 2. **设置 URL**：
 
-   - 在插件中设置 URL 为：https://tab.corlius.top/。
+   - 在插件中设置 URL 为：https://tab.corlius.top/ 。
 
 ## 自定义设置
 
