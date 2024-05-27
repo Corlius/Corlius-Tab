@@ -44,7 +44,3 @@
 ## 许可证
 
 本项目使用 MIT 许可证。详情请参阅 [LICENSE](LICENSE) 文件。
-
----
-
-如有任何问题或建议，请访问我们的 [GitHub 仓库](https://github.com/Corlius/Corlius-Tab)。
