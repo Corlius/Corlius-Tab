@@ -313,9 +313,9 @@
         const defaultSearchEngine = 'Google';
 
         document.addEventListener('DOMContentLoaded', () => {
+            const selectedSearchEngine = localStorage.getItem('searchEngine') || defaultSearchEngine;
             const lightWallpaper = localStorage.getItem('lightWallpaper') || defaultLightWallpaper;
             const darkWallpaper = localStorage.getItem('darkWallpaper') || defaultDarkWallpaper;
-            const selectedSearchEngine = localStorage.getItem('searchEngine') || defaultSearchEngine;
 
             document.documentElement.style.setProperty('--light-wallpaper', `url(${lightWallpaper})`);
             document.documentElement.style.setProperty('--dark-wallpaper', `url(${darkWallpaper})`);
@@ -395,9 +395,9 @@
                 searchEngineSelect.appendChild(option);
             });
 
+            searchEngineSelect.value = selectedSearchEngine;
             lightWallpaperSelect.value = lightWallpaper;
             darkWallpaperSelect.value = darkWallpaper;
-            searchEngineSelect.value = selectedSearchEngine;
 
             updateSearchFormAction(selectedSearchEngine);
 
