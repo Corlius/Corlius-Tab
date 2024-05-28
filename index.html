@@ -19,7 +19,7 @@
             background-size: cover;
             background-position: center;
             position: relative;
-            transition: background-image 0.5s ease-in-out;
+            transition: background-image 0.3s ease-in-out;
         }
 
         .time-display-container {
@@ -31,23 +31,26 @@
 
         .time-display {
             color: white;
-            opacity: 0.9;
+            opacity: 0.95;
             font-family: 'Futura', sans-serif;
         }
 
         .search-box {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
             display: flex;
             width: 80%;
             max-width: 600px;
             border-radius: 25px;
             background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(0, 0, 0, 0.2);
             padding: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .search-box.active {
+            transform: scale(1.03);
         }
 
         .search-box form {
@@ -82,6 +85,11 @@
         .github-icon img {
             width: 30px;
             height: 30px;
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .github-icon img:hover {
+            transform: scale(1.1);
         }
 
         .settings-icon {
@@ -94,6 +102,11 @@
         .settings-icon img {
             width: 30px;
             height: 30px;
+            transition: transform 0.15s ease-in-out;
+        }
+
+        .settings-icon img:hover {
+            transform: scale(1.1);
         }
 
         .settings-menu {
@@ -102,9 +115,9 @@
             bottom: 70px;
             right: 20px;
             background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
+            border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             z-index: 1000;
@@ -150,36 +163,64 @@
             align-items: center;
         }
 
-        .wallpaper-option img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            border-radius: 5px;
-            object-fit: cover;
-        }
-
         .search-engine-option {
             display: flex;
             align-items: center;
         }
 
-        .search-engine-option img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
-
         .preview-button {
             display: inline-block;
-            padding: 10px 20px;
+            width: 100%;
+            padding: 8px 10px;
             margin-top: 10px;
+            margin-bottom: 10px;
             border-radius: 5px;
             background: transparent;
             border: 1px solid #ccc;
             cursor: pointer;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             transition: background-color 0.5s, box-shadow 0.5s, border-color 0.5s;
         }
+
+        .tray {
+            position: fixed;
+            bottom: -100px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 25px;
+            padding: 5px 10px 5px 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
+            transition: bottom 0.4s ease-in-out;
+        }
+
+        .tray.show {
+            bottom: 20px;
+        }
+
+        .tray-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .tray-icon {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+        }
+
+        .tray-icon:hover {
+            transition: transform 0.15s ease-in-out, filter 0.15s ease-in-out;;
+        }
+
+        .tray-icon:hover {
+            transform: scale(1.05) translateY(-4px);
+            filter: brightness(1.15);
+        }
+
 
         @media (prefers-color-scheme: dark) {
             body {
@@ -190,7 +231,7 @@
             }
             .search-box {
                 background: rgba(35, 35, 35, 0.7);
-                border: 1px solid rgba(255, 255, 255, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.3);
             }
             .search-box input[type="text"] {
                 color: #fff;
@@ -198,7 +239,7 @@
             }
             .settings-menu {
                 background: rgba(35, 35, 35, 0.7);
-                border: 1px solid rgba(255, 255, 255, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.3);
             }
             .settings-menu select {
                 background: rgba(35, 35, 35, 0.7);
@@ -216,6 +257,10 @@
                 background-color: rgba(255, 255, 255, 0.2);
                 box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
             }
+            .tray {
+                background: rgba(35, 35, 35, 0.7);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
         }
 
         @media (prefers-color-scheme: light) {
@@ -226,8 +271,8 @@
                 color: white;
             }
             .search-box {
-                background: rgba(255, 255, 255, 0.55);
-                border: 1px solid rgba(0, 0, 0, 0.2);
+                background: rgba(255, 255, 255, 0.6);
+                border: 1px solid rgba(255, 255, 255, 0.4);
             }
             .search-box input[type="text"] {
                 color: #000;
@@ -235,7 +280,7 @@
             }
             .settings-menu {
                 background: rgba(255, 255, 255, 0.7);
-                border: 1px solid rgba(0, 0, 0, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.4);
             }
             .settings-menu select {
                 background: rgba(255, 255, 255, 0.7);
@@ -252,6 +297,10 @@
             .preview-button:hover {
                 background-color: rgba(0, 0, 0, 0.1);
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+            .tray {
+                background: rgba(255, 255, 255, 0.6);
+                border: 1px solid rgba(255, 255, 255, 0.4);
             }
         }
     </style>
@@ -324,6 +373,7 @@
             setInterval(updateTime, 60000);
 
             const searchInput = document.querySelector('.search-box input[type="text"]');
+            const searchBox = document.querySelector('.search-box');
             searchInput.focus();
             document.onkeydown = function(e) {
                 const focusElement = document.activeElement;
@@ -333,7 +383,24 @@
                 }
             };
 
-            const settingsButton = document.querySelector('.settings-icon');
+            searchInput.addEventListener('focus', () => {
+                searchBox.classList.add('active');
+            });
+
+            searchInput.addEventListener('blur', () => {
+                searchBox.classList.remove('active');
+            });
+
+            searchBox.classList.add('active');
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && searchBox.classList.contains('active')) {
+                    searchBox.classList.remove('active');
+                    searchInput.blur();
+                }
+            });
+
+            const settingsButton = document.querySelector('.settings-icon img');
             const settingsMenu = document.querySelector('.settings-menu');
             const lightWallpaperSelect = document.querySelector('#light-wallpaper-select');
             const darkWallpaperSelect = document.querySelector('#dark-wallpaper-select');
@@ -359,14 +426,9 @@
                 const wrapper = document.createElement('div');
                 wrapper.className = 'wallpaper-option';
 
-                const img = document.createElement('img');
-                img.src = file;
-                img.alt = file;
-
                 const span = document.createElement('span');
                 span.textContent = file.split('/').pop().replace('.jpg', '');
 
-                wrapper.appendChild(img);
                 wrapper.appendChild(span);
                 option.appendChild(wrapper);
 
@@ -429,6 +491,63 @@
                     window.location.href = searchURL;
                 };
             }
+
+            const tray = document.createElement('div');
+            tray.className = 'tray';
+
+            setTimeout(() => {
+                tray.classList.add('show');
+            }, 200);
+
+            const trayIcons = document.createElement('div');
+            trayIcons.className = 'tray-icons';
+
+            const chatGPTIcon = document.createElement('img');
+            chatGPTIcon.className = 'tray-icon';
+            chatGPTIcon.src = 'LinkiCons/ChatGPT.png';
+            chatGPTIcon.alt = 'ChatGPT';
+            chatGPTIcon.onclick = () => window.location.href = 'https://chatgpt.com/';
+    
+            const githubIcon = document.createElement('img');
+            githubIcon.className = 'tray-icon';
+            githubIcon.src = 'LinkiCons/GitHub.png';
+            githubIcon.alt = 'GitHub';
+            githubIcon.onclick = () => window.location.href = 'https://github.com/';
+
+            const youtubeIcon = document.createElement('img');
+            youtubeIcon.className = 'tray-icon';
+            youtubeIcon.src = 'LinkiCons/YouTube.png';
+            youtubeIcon.alt = 'YouTube';
+            youtubeIcon.onclick = () => window.location.href = 'https://www.youtube.com/';
+
+            const bilibiliIcon = document.createElement('img');
+            bilibiliIcon.className = 'tray-icon';
+            bilibiliIcon.src = 'LinkiCons/Bilibili.png';
+            bilibiliIcon.alt = 'Bilibili';
+            bilibiliIcon.onclick = () => window.location.href = 'https://www.bilibili.com/';
+
+            const disneyIcon = document.createElement('img');
+            disneyIcon.className = 'tray-icon';
+            disneyIcon.src = 'LinkiCons/Disney+.png';
+            disneyIcon.alt = 'Disney+';
+            disneyIcon.onclick = () => window.location.href = 'https://www.disneyplus.com/';
+
+            const appstIcon = document.createElement('img');
+            appstIcon.className = 'tray-icon';
+            appstIcon.src = 'LinkiCons/Appstorrent.png';
+            appstIcon.alt = 'Appstorrent';
+            appstIcon.onclick = () => window.location.href = 'https://appstorrent.ru/programs/';
+
+            trayIcons.appendChild(chatGPTIcon);
+            trayIcons.appendChild(githubIcon);
+            trayIcons.appendChild(youtubeIcon);
+            trayIcons.appendChild(bilibiliIcon);
+            trayIcons.appendChild(disneyIcon);
+            trayIcons.appendChild(appstIcon);
+
+            tray.appendChild(trayIcons);
+
+            document.body.appendChild(tray);
         });
 
         function updateTime() {
