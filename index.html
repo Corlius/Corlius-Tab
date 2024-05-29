@@ -393,7 +393,7 @@
         const defaultSearchEngine = 'Google';
 
         function isIPad() {
-            return /iPad/i.test(navigator.userAgent);
+            return /iPad/i.test(userAgent) && /CPU OS/i.test(userAgent) && /AppleWebKit/i.test(userAgent);
         }
 
         if (isIPad()) {
