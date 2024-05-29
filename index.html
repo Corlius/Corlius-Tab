@@ -241,7 +241,7 @@
 
         .tray-icon:hover {
             transform: scale(1.05) translateY(-4px);
-            filter: brightness(1.2);
+            filter: brightness(1.15);
         }
 
 
@@ -525,41 +525,85 @@
             const trayIcons = document.createElement('div');
             trayIcons.className = 'tray-icons';
 
+            // Function to open a link in a new tab
+            function openLinkNewTab(url) {
+                const link = document.createElement('a');
+                link.href = url;
+                link.target = '_blank';
+                link.click();
+            }
+
             const chatGPTIcon = document.createElement('img');
             chatGPTIcon.className = 'tray-icon';
             chatGPTIcon.src = 'LinkiCons/ChatGPT.png';
             chatGPTIcon.alt = 'ChatGPT';
             chatGPTIcon.onclick = () => window.location.href = 'https://chatgpt.com/';
+            chatGPTIcon.addEventListener('auxclick', (event) => {
+                if (event.button === 1) { 
+                    event.preventDefault(); 
+                    openLinkNewTab('https://chatgpt.com/');
+                }
+            });
     
             const githubIcon = document.createElement('img');
             githubIcon.className = 'tray-icon';
             githubIcon.src = 'LinkiCons/GitHub.png';
             githubIcon.alt = 'GitHub';
             githubIcon.onclick = () => window.location.href = 'https://github.com/';
+            githubIcon.addEventListener('auxclick', (event) => {
+                if (event.button === 1) { 
+                    event.preventDefault(); 
+                    openLinkNewTab('https://github.com/');
+                }
+            });
 
             const youtubeIcon = document.createElement('img');
             youtubeIcon.className = 'tray-icon';
             youtubeIcon.src = 'LinkiCons/YouTube.png';
             youtubeIcon.alt = 'YouTube';
             youtubeIcon.onclick = () => window.location.href = 'https://www.youtube.com/';
+            youtubeIcon.addEventListener('auxclick', (event) => {
+                if (event.button === 1) { 
+                    event.preventDefault(); 
+                    openLinkNewTab('https://www.youtube.com/');
+                }
+            });
 
             const bilibiliIcon = document.createElement('img');
             bilibiliIcon.className = 'tray-icon';
             bilibiliIcon.src = 'LinkiCons/Bilibili.png';
             bilibiliIcon.alt = 'Bilibili';
             bilibiliIcon.onclick = () => window.location.href = 'https://www.bilibili.com/';
+            bilibiliIcon.addEventListener('auxclick', (event) => {
+                if (event.button === 1) { 
+                    event.preventDefault(); 
+                    openLinkNewTab('https://www.bilibili.com/');
+                }
+            });
 
             const disneyIcon = document.createElement('img');
             disneyIcon.className = 'tray-icon';
             disneyIcon.src = 'LinkiCons/Disney+.png';
             disneyIcon.alt = 'Disney+';
             disneyIcon.onclick = () => window.location.href = 'https://www.disneyplus.com/';
+            disneyIcon.addEventListener('auxclick', (event) => {
+                if (event.button === 1) { 
+                    event.preventDefault(); 
+                    openLinkNewTab('https://www.disneyplus.com/');
+                }
+            });
 
             const appstIcon = document.createElement('img');
             appstIcon.className = 'tray-icon';
             appstIcon.src = 'LinkiCons/Appstorrent.png';
             appstIcon.alt = 'Appstorrent';
             appstIcon.onclick = () => window.location.href = 'https://appstorrent.ru/programs/';
+            appstIcon.addEventListener('auxclick', (event) => {
+                if (event.button === 1) { 
+                    event.preventDefault(); 
+                    openLinkNewTab('https://appstorrent.ru/programs/');
+                }
+            });
 
             trayIcons.appendChild(chatGPTIcon);
             trayIcons.appendChild(githubIcon);
