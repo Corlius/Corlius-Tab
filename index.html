@@ -227,7 +227,7 @@
         }
 
         .tray.show {
-            bottom: 16px;
+            bottom: 8px;
         }
 
         .tray-icons {
@@ -245,14 +245,6 @@
         .tray-icon:hover {
             transform: scale(1.05) translateY(-4px);
             filter: brightness(1.15);
-        }
-
-        
-        @media (max-width: 450px) {
-            .tray-icon {
-                width: 45px;
-                height: 45px;
-            }
         }
 
         @media (prefers-color-scheme: dark) {
@@ -336,6 +328,12 @@
                 border: 1px solid rgba(255, 255, 255, 0.4);
             }
         }
+
+        @media (max-width: 768px) {
+            .tray.show {
+                bottom: 20px;
+            }
+        }
     </style>
     <script>
         const wallpapers = [
@@ -393,6 +391,21 @@
         const defaultLightWallpaper = 'Wallpapers/LightGlass.jpg';
         const defaultDarkWallpaper = 'Wallpapers/DarkGlassRound.jpg';
         const defaultSearchEngine = 'Google';
+
+        function isIPad() {
+            return /iPad/i.test(navigator.userAgent);
+        }
+
+        if (isIPad()) {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .tray-icon {
+                    width: 45px;
+                    height: 45px;
+                }
+            `;
+            document.head.appendChild(style);
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             const selectedSearchEngine = localStorage.getItem('searchEngine') || defaultSearchEngine;
