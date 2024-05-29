@@ -395,6 +395,22 @@
             updateTime();
             setInterval(updateTime, 60000);
 
+            const searchButton = document.querySelector('.search-button');
+
+            searchButton.addEventListener('auxclick', (event) => {
+                if (event.button === 1) { // Middle button click
+                    event.preventDefault();
+
+                    const searchInput = document.querySelector('.search-box input[type="text"]');
+                    const query = searchInput.value;
+                    const selectedEngine = localStorage.getItem('searchEngine') || defaultSearchEngine;
+                    const selectedEngineData = searchEngines.find(engine => engine.name === selectedEngine);
+                    const searchURL = `${selectedEngineData.url}?${selectedEngineData.queryParam}=${encodeURIComponent(query)}`;
+                    
+                    window.open(searchURL, '_blank'); 
+                }
+            });
+
             const searchInput = document.querySelector('.search-box input[type="text"]');
             const searchBox = document.querySelector('.search-box');
             searchInput.focus();
