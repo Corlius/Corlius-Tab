@@ -19,7 +19,7 @@
 
 1. **安装插件**：
 
-   [Custom New Tab Page](https://chromewebstore.google.com/detail/custom-new-tab-page/bfhappcgfmpmlbmgbgmjjlihddgkeomd)
+   - [Custom New Tab Url](https://chromewebstore.google.com/detail/custom-new-tab-url/mmjbdbjnoablegbkcklggeknkfcjkjia)
 
 2. **设置 URL**：
 
