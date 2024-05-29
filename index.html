@@ -560,6 +560,18 @@
                     openLinkNewTab('https://chatgpt.com/');
                 }
             });
+
+            const aistudioIcon = document.createElement('img');
+            aistudioIcon.className = 'tray-icon';
+            aistudioIcon.src = 'LinkiCons/AIStudio.png';
+            aistudioIcon.alt = 'AIStudio';
+            aistudioIcon.onclick = () => window.location.href = 'https://aistudio.google.com/app/prompts/1pJD5v--kDEq-gPjlqngb2ByzIcvpX7__';
+            aistudioIcon.addEventListener('auxclick', (event) => {
+                if (event.button === 1) { 
+                    event.preventDefault(); 
+                    openLinkNewTab('https://aistudio.google.com/app/prompts/1pJD5v--kDEq-gPjlqngb2ByzIcvpX7__');
+                }
+            });
     
             const githubIcon = document.createElement('img');
             githubIcon.className = 'tray-icon';
@@ -622,6 +634,7 @@
             });
 
             trayIcons.appendChild(chatGPTIcon);
+            trayIcons.appendChild(aistudioIcon);
             trayIcons.appendChild(githubIcon);
             trayIcons.appendChild(youtubeIcon);
             trayIcons.appendChild(bilibiliIcon);
