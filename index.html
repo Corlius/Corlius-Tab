@@ -410,14 +410,12 @@
             searchButton.addEventListener('auxclick', (event) => {
                 if (event.button === 1) { // Middle button click
                     event.preventDefault();
-
                     const searchInput = document.querySelector('.search-box input[type="text"]');
                     const query = searchInput.value;
                     const selectedEngine = localStorage.getItem('searchEngine') || defaultSearchEngine;
                     const selectedEngineData = searchEngines.find(engine => engine.name === selectedEngine);
                     const searchURL = `${selectedEngineData.url}?${selectedEngineData.queryParam}=${encodeURIComponent(query)}`;
-                    
-                    window.open(searchURL, '_blank'); 
+                    window.open(searchURL, '_blank');
                 }
             });
 
@@ -551,108 +549,32 @@
             const trayIcons = document.createElement('div');
             trayIcons.className = 'tray-icons';
 
-            // Function to open a link in a new tab
-            function openLinkNewTab(url) {
-                const link = document.createElement('a');
-                link.href = url;
-                link.target = '_blank';
-                link.click();
-            }
+            const trayIconsItem = [
+                { src: 'LinkiCons/ChatGPT.png', alt: 'ChatGPT', url: 'https://chatgpt.com/' },
+                { src: 'LinkiCons/AIStudio.png', alt: 'AIStudio', url: 'https://aistudio.google.com/app/prompts/1pJD5v--kDEq-gPjlqngb2ByzIcvpX7__' },
+                { src: 'LinkiCons/GitHub.png', alt: 'GitHub', url: 'https://github.com/' },
+                { src: 'LinkiCons/YouTube.png', alt: 'YouTube', url: 'https://www.youtube.com/' },
+                { src: 'LinkiCons/Bilibili.png', alt: 'Bilibili', url: 'https://www.bilibili.com/' },
+                { src: 'LinkiCons/Disney+.png', alt: 'Disney+', url: 'https://www.disneyplus.com/' },
+                { src: 'LinkiCons/Appstorrent.png', alt: 'Appstorrent', url: 'https://appstorrent.ru/programs/' }
+            ];
 
-            const chatGPTIcon = document.createElement('img');
-            chatGPTIcon.className = 'tray-icon';
-            chatGPTIcon.src = 'LinkiCons/ChatGPT.png';
-            chatGPTIcon.alt = 'ChatGPT';
-            chatGPTIcon.onclick = () => window.location.href = 'https://chatgpt.com/';
-            chatGPTIcon.addEventListener('auxclick', (event) => {
-                if (event.button === 1) { 
-                    event.preventDefault(); 
-                    openLinkNewTab('https://chatgpt.com/');
-                }
+            trayIconsItem.forEach(config => {
+                const icon = document.createElement('img');
+                icon.className = 'tray-icon';
+                icon.src = config.src;
+                icon.alt = config.alt;
+                icon.onclick = () => window.location.href = config.url;
+                icon.addEventListener('auxclick', (event) => {
+                    if (event.button === 1) {
+                        event.preventDefault();
+                        window.open(config.url, '_blank');
+                    }
+                });
+                trayIcons.appendChild(icon);
             });
-
-            const aistudioIcon = document.createElement('img');
-            aistudioIcon.className = 'tray-icon';
-            aistudioIcon.src = 'LinkiCons/AIStudio.png';
-            aistudioIcon.alt = 'AIStudio';
-            aistudioIcon.onclick = () => window.location.href = 'https://aistudio.google.com/app/prompts/1pJD5v--kDEq-gPjlqngb2ByzIcvpX7__';
-            aistudioIcon.addEventListener('auxclick', (event) => {
-                if (event.button === 1) { 
-                    event.preventDefault(); 
-                    openLinkNewTab('https://aistudio.google.com/app/prompts/1pJD5v--kDEq-gPjlqngb2ByzIcvpX7__');
-                }
-            });
-    
-            const githubIcon = document.createElement('img');
-            githubIcon.className = 'tray-icon';
-            githubIcon.src = 'LinkiCons/GitHub.png';
-            githubIcon.alt = 'GitHub';
-            githubIcon.onclick = () => window.location.href = 'https://github.com/';
-            githubIcon.addEventListener('auxclick', (event) => {
-                if (event.button === 1) { 
-                    event.preventDefault(); 
-                    openLinkNewTab('https://github.com/');
-                }
-            });
-
-            const youtubeIcon = document.createElement('img');
-            youtubeIcon.className = 'tray-icon';
-            youtubeIcon.src = 'LinkiCons/YouTube.png';
-            youtubeIcon.alt = 'YouTube';
-            youtubeIcon.onclick = () => window.location.href = 'https://www.youtube.com/';
-            youtubeIcon.addEventListener('auxclick', (event) => {
-                if (event.button === 1) { 
-                    event.preventDefault(); 
-                    openLinkNewTab('https://www.youtube.com/');
-                }
-            });
-
-            const bilibiliIcon = document.createElement('img');
-            bilibiliIcon.className = 'tray-icon';
-            bilibiliIcon.src = 'LinkiCons/Bilibili.png';
-            bilibiliIcon.alt = 'Bilibili';
-            bilibiliIcon.onclick = () => window.location.href = 'https://www.bilibili.com/';
-            bilibiliIcon.addEventListener('auxclick', (event) => {
-                if (event.button === 1) { 
-                    event.preventDefault(); 
-                    openLinkNewTab('https://www.bilibili.com/');
-                }
-            });
-
-            const disneyIcon = document.createElement('img');
-            disneyIcon.className = 'tray-icon';
-            disneyIcon.src = 'LinkiCons/Disney+.png';
-            disneyIcon.alt = 'Disney+';
-            disneyIcon.onclick = () => window.location.href = 'https://www.disneyplus.com/';
-            disneyIcon.addEventListener('auxclick', (event) => {
-                if (event.button === 1) { 
-                    event.preventDefault(); 
-                    openLinkNewTab('https://www.disneyplus.com/');
-                }
-            });
-
-            const appstIcon = document.createElement('img');
-            appstIcon.className = 'tray-icon';
-            appstIcon.src = 'LinkiCons/Appstorrent.png';
-            appstIcon.alt = 'Appstorrent';
-            appstIcon.onclick = () => window.location.href = 'https://appstorrent.ru/programs/';
-            appstIcon.addEventListener('auxclick', (event) => {
-                if (event.button === 1) { 
-                    event.preventDefault(); 
-                    openLinkNewTab('https://appstorrent.ru/programs/');
-                }
-            });
-
-            trayIcons.appendChild(chatGPTIcon);
-            trayIcons.appendChild(aistudioIcon);
-            trayIcons.appendChild(githubIcon);
-            trayIcons.appendChild(youtubeIcon);
-            trayIcons.appendChild(bilibiliIcon);
-            trayIcons.appendChild(disneyIcon);
-            trayIcons.appendChild(appstIcon);
 
             tray.appendChild(trayIcons);
-
             document.body.appendChild(tray);
         });
 
