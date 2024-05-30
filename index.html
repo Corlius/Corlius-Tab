@@ -209,7 +209,7 @@
 
         .tray {
             position: fixed;
-            bottom: -90px;
+            bottom: 16px;
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -222,10 +222,6 @@
             justify-content: space-between;
             flex-wrap: wrap;
             transition: bottom 0.3s ease-in-out;
-        }
-
-        .tray.show {
-            bottom: 16px;
         }
 
         .tray-icons {
@@ -447,10 +443,6 @@
 
             const tray = document.createElement('div');
             tray.className = 'tray';
-
-            setTimeout(() => {
-                tray.classList.add('show');
-            }, 10);
 
             const trayIcons = document.createElement('div');
             trayIcons.className = 'tray-icons';
