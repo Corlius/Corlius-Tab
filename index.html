@@ -401,7 +401,7 @@
             document.documentElement.style.setProperty('--dark-wallpaper', `url(${darkWallpaper})`);
 
             updateTime();
-            setInterval(updateTime, 60000);
+            setInterval(updateTime, 10);
 
             const searchButton = document.querySelector('.search-button');
 
@@ -444,6 +444,44 @@
                     searchInput.blur();
                 }
             });
+
+            const tray = document.createElement('div');
+            tray.className = 'tray';
+
+            setTimeout(() => {
+                tray.classList.add('show');
+            }, 10);
+
+            const trayIcons = document.createElement('div');
+            trayIcons.className = 'tray-icons';
+
+            const trayIconsItem = [
+                { src: 'LinkiCons/ChatGPT.png', alt: 'ChatGPT', url: 'https://chatgpt.com/' },
+                { src: 'LinkiCons/AIStudio.png', alt: 'AIStudio', url: 'https://aistudio.google.com/app/prompts/1pJD5v--kDEq-gPjlqngb2ByzIcvpX7__' },
+                { src: 'LinkiCons/GitHub.png', alt: 'GitHub', url: 'https://github.com/' },
+                { src: 'LinkiCons/YouTube.png', alt: 'YouTube', url: 'https://www.youtube.com/' },
+                { src: 'LinkiCons/Bilibili.png', alt: 'Bilibili', url: 'https://www.bilibili.com/' },
+                { src: 'LinkiCons/Disney+.png', alt: 'Disney+', url: 'https://www.disneyplus.com/' },
+                { src: 'LinkiCons/Appstorrent.png', alt: 'Appstorrent', url: 'https://appstorrent.ru/programs/' }
+            ];
+
+            trayIconsItem.forEach(config => {
+                const icon = document.createElement('img');
+                icon.className = 'tray-icon';
+                icon.src = config.src;
+                icon.alt = config.alt;
+                icon.onclick = () => window.location.href = config.url;
+                icon.addEventListener('auxclick', (event) => {
+                    if (event.button === 1) {
+                        event.preventDefault();
+                        window.open(config.url, '_blank');
+                    }
+                });
+                trayIcons.appendChild(icon);
+            });
+
+            tray.appendChild(trayIcons);
+            document.body.appendChild(tray);
 
             const settingsButton = document.querySelector('.settings-icon img');
             const settingsMenu = document.querySelector('.settings-menu');
@@ -536,44 +574,6 @@
                     window.location.href = searchURL;
                 };
             }
-
-            const tray = document.createElement('div');
-            tray.className = 'tray';
-
-            setTimeout(() => {
-                tray.classList.add('show');
-            }, 10);
-
-            const trayIcons = document.createElement('div');
-            trayIcons.className = 'tray-icons';
-
-            const trayIconsItem = [
-                { src: 'LinkiCons/ChatGPT.png', alt: 'ChatGPT', url: 'https://chatgpt.com/' },
-                { src: 'LinkiCons/AIStudio.png', alt: 'AIStudio', url: 'https://aistudio.google.com/app/prompts/1pJD5v--kDEq-gPjlqngb2ByzIcvpX7__' },
-                { src: 'LinkiCons/GitHub.png', alt: 'GitHub', url: 'https://github.com/' },
-                { src: 'LinkiCons/YouTube.png', alt: 'YouTube', url: 'https://www.youtube.com/' },
-                { src: 'LinkiCons/Bilibili.png', alt: 'Bilibili', url: 'https://www.bilibili.com/' },
-                { src: 'LinkiCons/Disney+.png', alt: 'Disney+', url: 'https://www.disneyplus.com/' },
-                { src: 'LinkiCons/Appstorrent.png', alt: 'Appstorrent', url: 'https://appstorrent.ru/programs/' }
-            ];
-
-            trayIconsItem.forEach(config => {
-                const icon = document.createElement('img');
-                icon.className = 'tray-icon';
-                icon.src = config.src;
-                icon.alt = config.alt;
-                icon.onclick = () => window.location.href = config.url;
-                icon.addEventListener('auxclick', (event) => {
-                    if (event.button === 1) {
-                        event.preventDefault();
-                        window.open(config.url, '_blank');
-                    }
-                });
-                trayIcons.appendChild(icon);
-            });
-
-            tray.appendChild(trayIcons);
-            document.body.appendChild(tray);
         });
 
         function updateTime() {
