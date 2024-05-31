@@ -15,15 +15,25 @@
    - macOS Dock 风格的底部图标托盘。
    - 可快速直达站点。
 
-## 使用方法
+## 使用在线链接
 
-1. **安装插件**：
+1. **安装第三方插件**：
 
    - [Custom New Tab Url](https://chromewebstore.google.com/detail/custom-new-tab-url/mmjbdbjnoablegbkcklggeknkfcjkjia)
 
 2. **设置 URL**：
 
    - 在插件的扩展选项中设置 URL 为：https://tab.corlius.top/ 。
+
+## 使用本地 Chrome 插件
+
+1. **下载插件**：
+   - 在[发布页](https://github.com/Corlius/Corlius-Tab/releases)下载插件压缩包。
+   - 解压文件。
+
+2. **安装插件**：
+   - 打开 Chromium 内核浏览器的插件页，启用“开发者模式”。
+   - 点击“加载已解压的扩展程序”，选择插件所在的文件夹。
 
 ## 自定义设置
 
