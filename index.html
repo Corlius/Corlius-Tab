@@ -18,6 +18,7 @@
             background-position: center;
             position: relative;
             font-family: arial,sans-serif;
+            font-size: 14px;
             transition: background-image 0.3s ease-in-out;
         }
 
@@ -151,8 +152,6 @@
             display: block;
             margin-bottom: 8px;
             color: inherit;
-            font-size: 14px;
-            font-weight: 500;
         }
 
         .settings-menu select {
@@ -160,6 +159,7 @@
             width: 100%;
             padding: 8px 10px;
             margin-bottom: 16px;
+            font-size: 14px;
             border-radius: 5px;
             border: 1px solid #ccc;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -198,8 +198,8 @@
             padding: 8px 10px;
             margin-top: 10px;
             margin-bottom: 10px;
+            font-size: 14px;
             border-radius: 5px;
-            background: transparent;
             border: 1px solid #ccc;
             cursor: pointer;
             backdrop-filter: blur(15px);
@@ -249,45 +249,97 @@
             }
         }
 
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-image: var(--dark-wallpaper);
-            }
-            .time-display {
-                color: white;
-            }
-            .search-box {
-                background: rgba(35, 35, 35, 0.7);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-            }
-            .search-box input[type="text"] {
-                color: #fff;
-                caret-color: #fff;
-            }
-            .settings-menu {
-                background: rgba(35, 35, 35, 0.7);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-            }
-            .settings-menu select {
-                background: rgba(35, 35, 35, 0.7);
-                color: #fff;
-                border: 1px solid #555;
-            }
-            .settings-menu label {
-                color: #fff;
-            }
-            .preview-button {
-                color: #fff;
-                border-color: rgba(255, 255, 255, 0.2);
-            }
-            .preview-button:hover {
-                background-color: rgba(255, 255, 255, 0.2);
-                box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-            }
-            .tray {
-                background: rgba(35, 35, 35, 0.7);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-            }
+        .preview-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001; 
+            top: 4%;
+            bottom: 4%;
+            left: 3%;
+            right: 3%;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 20px 1.5% 20px 1.5%;
+            box-shadow: 0 0 5px 100px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .preview-modal .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .preview-modal .gallery-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: rgba(0, 0, 0, 0.8);
+            font-weight: bold;
+        }
+
+        .preview-modal .gallery-container {
+            height: calc(100% - 60px);
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .preview-modal .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-modal .gallery img {
+            width: 100%;
+            cursor: pointer;
+            display: block;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .preview-modal .gallery img.large {
+            max-height: 100%;
+            width: auto;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1002;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .preview-modal .gallery img.large img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .preview-modal .gallery-item span {
+            margin-top: 10px;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        .preview-modal .close-button {
+            position: absolute;
+            top: 1%;
+            right: 3%;
+            font-size: 50px;
+            color: rgba(0, 0, 0, 0.8);
+            cursor: pointer;
         }
 
         @media (prefers-color-scheme: light) {
@@ -319,6 +371,7 @@
             }
             .preview-button {
                 color: #000;
+                background: rgba(255, 255, 255, 0.7);
                 border-color: rgba(0, 0, 0, 0.2);
             }
             .preview-button:hover {
@@ -329,6 +382,76 @@
                 background: rgba(255, 255, 255, 0.6);
                 border: 1px solid rgba(255, 255, 255, 0.4);
             }
+            .preview-modal {
+                background: rgba(255, 255, 255, 0.6);
+                border: 1px solid rgba(255, 255, 255, 0.4);
+                box-shadow: 0 0 5px 100px rgba(0, 0, 0, 0.1);
+            }
+            .preview-modal .gallery-title {
+                color: rgba(0, 0, 0, 0.8);
+            }
+            .preview-modal .gallery-item span {
+                color: rgba(0, 0, 0, 0.8);
+                }
+            .preview-modal .close-button {
+                color: rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-image: var(--dark-wallpaper);
+            }
+            .time-display {
+                color: white;
+            }
+            .search-box {
+                background: rgba(35, 35, 35, 0.7);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+            .search-box input[type="text"] {
+                color: #fff;
+                caret-color: #fff;
+            }
+            .settings-menu {
+                background: rgba(35, 35, 35, 0.7);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+            .settings-menu select {
+                background: rgba(35, 35, 35, 0.7);
+                color: #fff;
+                border: 1px solid #555;
+            }
+            .settings-menu label {
+                color: #fff;
+            }
+            .preview-button {
+                color: #fff;
+                background: rgba(35, 35, 35, 0.7);
+                border-color: rgba(255, 255, 255, 0.2);
+            }
+            .preview-button:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+                box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+            }
+            .tray {
+                background: rgba(35, 35, 35, 0.7);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+            .preview-modal {
+                background: rgba(35, 35, 35, 0.7);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 0 5px 100px rgba(0, 0, 0, 0.3);
+            }
+            .preview-modal .gallery-title {
+                color: rgba(255, 255, 255, 0.8);
+            }
+            .preview-modal .gallery-item span {
+                color: rgba(255, 255, 255, 0.8);
+                }
+            .preview-modal .close-button {
+                color: rgba(255, 255, 255, 0.3);
+            }
         }
     </style>
     <script src="script.js"></script>
@@ -337,6 +460,7 @@
     <div class="time-display-container">
         <div class="time-display"></div>
     </div>
+
     <div class="search-box">
         <form method="GET">
             <input type="text" name="q" placeholder="Search Anything...">
@@ -345,14 +469,17 @@
             </button>
         </form>
     </div>
+
     <div class="github-icon">
         <a href="https://github.com/Corlius/Corlius-Tab" target="_blank">
             <img src="github.svg" alt="GitHub">
         </a>
     </div>
+
     <div class="settings-icon">
         <img src="settings.png" alt="Settings">
     </div>
+
     <div class="settings-menu">
         <label for="search-engine-select">Search Engine:</label>
         <select id="search-engine-select"></select>
@@ -360,7 +487,15 @@
         <select id="light-wallpaper-select"></select>
         <label for="dark-wallpaper-select">Dark Wallpaper:</label>
         <select id="dark-wallpaper-select"></select>
-        <button class="preview-button" onclick="window.open('./preview.html', '_blank');">Preview Wallpapers</button>
+        <button class="preview-button" id="previewButton">Preview Wallpapers</button>
+    </div>
+
+    <div id="wallpaperPreviewModal" class="preview-modal">
+        <div class="gallery-title">Wallpapers Preview</div>
+        <div class="gallery-container">
+            <div class="gallery" id="gallery"></div>
+            <span class="close-button" id="closeModal">×</span>
+        </div>
     </div>
 </body>
 </html>

@@ -1,32 +1,32 @@
 const wallpapers = [
-    "Wallpapers/DarkGlassDimond.jpg",
-    "Wallpapers/DarkGlassRectangles.jpg",
-    "Wallpapers/DarkGlassRectanglesGray.jpg",
-    "Wallpapers/DarkGlassRectanglesPurple.jpg",
-    "Wallpapers/DarkGlassRound.jpg",
-    "Wallpapers/DarkGlassRoundPurple.jpg",
-    "Wallpapers/DarkGlassRounded.jpg",
-    "Wallpapers/DarkMetalBand.jpg",
-    "Wallpapers/DarkMetalRectangles.jpg",
-    "Wallpapers/DarkMetalStack.jpg",
-    "Wallpapers/DarkRayBall.jpg",
-    "Wallpapers/DarkWaves.jpg",
-    "Wallpapers/DarkWindowsPantone.jpg",
-    "Wallpapers/DrakCirclePurple.jpg",
-    "Wallpapers/LightGlass.jpg",
-    "Wallpapers/LightGlassCube.jpg",
-    "Wallpapers/LightGlassOcean.jpg",
-    "Wallpapers/LightGlassPaved.jpg",
-    "Wallpapers/LightGlassPurple.jpg",
-    "Wallpapers/LightGlassPurpleBands.jpg",
-    "Wallpapers/LightGlassRectanglesPurple.jpg",
-    "Wallpapers/LightMetalBand.jpg",
-    "Wallpapers/LightMetalRectangles.jpg",
-    "Wallpapers/LightMetalStack.jpg",
-    "Wallpapers/LightRoundStackGold.jpg",
-    "Wallpapers/LightRoundStackRed.jpg",
-    "Wallpapers/LightWaves.jpg",
-    "Wallpapers/LightWindowsPantone.jpg",
+    "wallpapers/DarkGlassDimond.jpg",
+    "wallpapers/DarkGlassRectangles.jpg",
+    "wallpapers/DarkGlassRectanglesGray.jpg",
+    "wallpapers/DarkGlassRectanglesPurple.jpg",
+    "wallpapers/DarkGlassRound.jpg",
+    "wallpapers/DarkGlassRoundPurple.jpg",
+    "wallpapers/DarkGlassRounded.jpg",
+    "wallpapers/DarkMetalBand.jpg",
+    "wallpapers/DarkMetalRectangles.jpg",
+    "wallpapers/DarkMetalStack.jpg",
+    "wallpapers/DarkRayBall.jpg",
+    "wallpapers/DarkWaves.jpg",
+    "wallpapers/DarkWindowsPantone.jpg",
+    "wallpapers/DrakCirclePurple.jpg",
+    "wallpapers/LightGlass.jpg",
+    "wallpapers/LightGlassCube.jpg",
+    "wallpapers/LightGlassOcean.jpg",
+    "wallpapers/LightGlassPaved.jpg",
+    "wallpapers/LightGlassPurple.jpg",
+    "wallpapers/LightGlassPurpleBands.jpg",
+    "wallpapers/LightGlassRectanglesPurple.jpg",
+    "wallpapers/LightMetalBand.jpg",
+    "wallpapers/LightMetalRectangles.jpg",
+    "wallpapers/LightMetalStack.jpg",
+    "wallpapers/LightRoundStackGold.jpg",
+    "wallpapers/LightRoundStackRed.jpg",
+    "wallpapers/LightWaves.jpg",
+    "wallpapers/LightWindowsPantone.jpg",
 ];
 
 const searchEngines = [
@@ -50,8 +50,17 @@ const searchEngines = [
     }
 ];
 
-const defaultLightWallpaper = 'Wallpapers/LightGlass.jpg';
-const defaultDarkWallpaper = 'Wallpapers/DarkGlassRound.jpg';
+function updateTime() {
+    const timeDisplay = document.querySelector('.time-display');
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const timeString = `${hours}:${minutes}`;
+    timeDisplay.textContent = timeString;
+}
+
+const defaultLightWallpaper = 'wallpapers/LightGlass.jpg';
+const defaultDarkWallpaper = 'wallpapers/DarkGlassRound.jpg';
 const defaultSearchEngine = 'Google';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -63,12 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.style.setProperty('--dark-wallpaper', `url(${darkWallpaper})`);
 
     updateTime();
-    setInterval(updateTime, 10);
+    setInterval(updateTime, 100);
 
     const searchButton = document.querySelector('.search-button');
-
     searchButton.addEventListener('auxclick', (event) => {
-        if (event.button === 1) { // Middle button click
+        if (event.button === 1) {
             event.preventDefault();
             const searchInput = document.querySelector('.search-box input[type="text"]');
             const query = searchInput.value;
@@ -114,13 +122,13 @@ document.addEventListener('DOMContentLoaded', () => {
     trayIcons.className = 'tray-icons';
 
     const trayIconsItem = [
-        { src: 'LinkiCons/ChatGPT.png', alt: 'ChatGPT', url: 'https://chatgpt.com/' },
-        { src: 'LinkiCons/AIStudio.png', alt: 'AIStudio', url: 'https://aistudio.google.com/app/prompts/1pJD5v--kDEq-gPjlqngb2ByzIcvpX7__' },
-        { src: 'LinkiCons/GitHub.png', alt: 'GitHub', url: 'https://github.com/' },
-        { src: 'LinkiCons/YouTube.png', alt: 'YouTube', url: 'https://www.youtube.com/' },
-        { src: 'LinkiCons/Bilibili.png', alt: 'Bilibili', url: 'https://www.bilibili.com/' },
-        { src: 'LinkiCons/Disney+.png', alt: 'Disney+', url: 'https://www.disneyplus.com/' },
-        { src: 'LinkiCons/Appstorrent.png', alt: 'Appstorrent', url: 'https://appstorrent.ru/programs/' }
+        { src: 'trayicons/ChatGPT.png', alt: 'ChatGPT', url: 'https://chatgpt.com/' },
+        { src: 'trayicons/AIStudio.png', alt: 'AIStudio', url: 'https://aistudio.google.com/app/prompts/1pJD5v--kDEq-gPjlqngb2ByzIcvpX7__' },
+        { src: 'trayicons/GitHub.png', alt: 'GitHub', url: 'https://github.com/' },
+        { src: 'trayicons/YouTube.png', alt: 'YouTube', url: 'https://www.youtube.com/' },
+        { src: 'trayicons/Bilibili.png', alt: 'Bilibili', url: 'https://www.bilibili.com/' },
+        { src: 'trayicons/Disney+.png', alt: 'Disney+', url: 'https://www.disneyplus.com/' },
+        { src: 'trayicons/Appstorrent.png', alt: 'Appstorrent', url: 'https://appstorrent.ru/programs/' }
     ];
 
     trayIconsItem.forEach(config => {
@@ -143,8 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const settingsButton = document.querySelector('.settings-icon img');
     const settingsMenu = document.querySelector('.settings-menu');
-    const lightWallpaperSelect = document.querySelector('#light-wallpaper-select');
-    const darkWallpaperSelect = document.querySelector('#dark-wallpaper-select');
+    const lightwallpaperselect = document.querySelector('#light-wallpaper-select');
+    const darkwallpaperselect = document.querySelector('#dark-wallpaper-select');
     const searchEngineSelect = document.querySelector('#search-engine-select');
     const searchForm = document.querySelector('.search-box form');
 
@@ -173,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.appendChild(span);
         option.appendChild(wrapper);
 
-        lightWallpaperSelect.appendChild(option.cloneNode(true));
-        darkWallpaperSelect.appendChild(option.cloneNode(true));
+        lightwallpaperselect.appendChild(option.cloneNode(true));
+        darkwallpaperselect.appendChild(option.cloneNode(true));
     });
 
     searchEngines.forEach(engine => {
@@ -199,8 +207,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     searchEngineSelect.value = selectedSearchEngine;
-    lightWallpaperSelect.value = lightWallpaper;
-    darkWallpaperSelect.value = darkWallpaper;
+    lightwallpaperselect.value = lightWallpaper;
+    darkwallpaperselect.value = darkWallpaper;
 
     updateSearchFormAction(selectedSearchEngine);
 
@@ -210,13 +218,13 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('searchEngine', selectedEngine);
     });
 
-    lightWallpaperSelect.addEventListener('change', (e) => {
+    lightwallpaperselect.addEventListener('change', (e) => {
         const selectedWallpaper = e.target.value;
         document.documentElement.style.setProperty('--light-wallpaper', `url(${selectedWallpaper})`);
         localStorage.setItem('lightWallpaper', selectedWallpaper);
     });
 
-    darkWallpaperSelect.addEventListener('change', (e) => {
+    darkwallpaperselect.addEventListener('change', (e) => {
         const selectedWallpaper = e.target.value;
         document.documentElement.style.setProperty('--dark-wallpaper', `url(${selectedWallpaper})`);
         localStorage.setItem('darkWallpaper', selectedWallpaper);
@@ -232,13 +240,84 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = searchURL;
         };
     }
-});
 
-function updateTime() {
-    const timeDisplay = document.querySelector('.time-display');
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const timeString = `${hours}:${minutes}`;
-    timeDisplay.textContent = timeString;
-}
+    const previewButton = document.getElementById('previewButton');
+    const closeModal = document.getElementById('closeModal');
+    const previewModal = document.getElementById('wallpaperPreviewModal');
+    const galleryContainer = document.getElementById('gallery');
+    let largeImage = null;
+    let loadingIndex = 0;
+    let loadedImages = [];
+
+    function getPreviewImagePath(imagePath) {
+        const fileName = imagePath.split('/').pop();
+        return `wallpapers/preview/${fileName}`;
+    }
+
+    previewButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        openPreviewModal(); 
+    });
+    closeModal.addEventListener('click', closePreviewModal);
+
+    previewModal.style.transition = 'opacity 0.2s ease-in-out';
+
+    function closeModalOnOutsideClick(event) {
+        if (!previewModal.contains(event.target)) closePreviewModal();
+    }
+
+    function openPreviewModal() {
+        previewModal.style.opacity = '0';
+        previewModal.style.display = 'block';
+        settingsMenu.style.display = 'none';
+        setTimeout(() => {
+            previewModal.style.opacity = '1';
+        }, 10);
+        if (galleryContainer.innerHTML === '') {
+            wallpapers.forEach(fullPath => {
+                const fileName = fullPath.split('/').pop().split('.')[0];
+                const div = document.createElement('div');
+                div.classList.add('gallery-item');
+
+                const img = document.createElement('img');
+                img.src = getPreviewImagePath(fullPath);
+                img.alt = fileName;
+                img.dataset.fullImage = fullPath;
+
+                div.appendChild(img);
+                const span = document.createElement('span');
+                span.textContent = fileName.replace(/^[^-]*-/, '');
+                div.appendChild(span);
+                galleryContainer.appendChild(div);
+            });
+        }
+        window.addEventListener('click', closeModalOnOutsideClick);
+    }
+
+    function closePreviewModal() {
+        previewModal.style.opacity = '0';
+        setTimeout(() => {
+            previewModal.style.display = 'none';
+        }, 200);
+        if (largeImage) {
+            largeImage.classList.remove('large');
+            largeImage = null;
+        }
+        window.removeEventListener('click', closeModalOnOutsideClick);
+    }
+
+    galleryContainer.addEventListener('click', (event) => {
+        if (event.target.tagName === 'IMG') {
+            const img = event.target;
+            if (largeImage) {
+                largeImage.classList.remove('large');
+                largeImage.src = getPreviewImagePath(largeImage.dataset.fullImage);
+                largeImage = null;
+            } else {
+                img.classList.add('large');
+                img.src = img.dataset.fullImage;
+                largeImage = img;
+            }
+        }
+    });
+});
