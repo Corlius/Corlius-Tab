@@ -1,33 +1,53 @@
 const wallpapers = [
+    "wallpapers/DarkAbstractReflection.jpg",
+    "wallpapers/DarkGlassCircleWithReflection.jpg",
     "wallpapers/DarkGlassDimond.jpg",
+    "wallpapers/DarkGlassDropsPurple.jpg",
     "wallpapers/DarkGlassRectangles.jpg",
-    "wallpapers/DarkGlassRectanglesGray.jpg",
     "wallpapers/DarkGlassRectanglesPurple.jpg",
     "wallpapers/DarkGlassRound.jpg",
     "wallpapers/DarkGlassRoundPurple.jpg",
     "wallpapers/DarkGlassRounded.jpg",
+    "wallpapers/DarkGlassTwistedWithReflection.jpg",
     "wallpapers/DarkMetalBand.jpg",
+    "wallpapers/DarkMetalCurved.jpg",
     "wallpapers/DarkMetalRectangles.jpg",
+    "wallpapers/DarkMetalRectanglesPurple.jpg",
     "wallpapers/DarkMetalStack.jpg",
+    "wallpapers/DarkMicrosoftBlue.jpg",
+    "wallpapers/DarkMicrosoftPurple.jpg",
+    "wallpapers/DarkMultiColorStack.jpg",
+    "wallpapers/DarkPlanetWithRings.jpg",
     "wallpapers/DarkRayBall.jpg",
     "wallpapers/DarkWaves.jpg",
     "wallpapers/DarkWindowsPantone.jpg",
     "wallpapers/DrakCirclePurple.jpg",
+    "wallpapers/LightAbstractPurple.jpg",
+    "wallpapers/LightAbstractReflection.jpg",
+    "wallpapers/LightBallBlueYellow.jpg",
+    "wallpapers/LightCandyCube.jpg",
+    "wallpapers/LightColoredSmokes.jpg",
     "wallpapers/LightGlass.jpg",
+    "wallpapers/LightGlassBallBlue.jpg",
+    "wallpapers/LightGlassCircleBlur.jpg",
     "wallpapers/LightGlassCube.jpg",
+    "wallpapers/LightGlassCurved.jpg",
     "wallpapers/LightGlassOcean.jpg",
     "wallpapers/LightGlassPaved.jpg",
     "wallpapers/LightGlassPurple.jpg",
     "wallpapers/LightGlassPurpleBands.jpg",
-    "wallpapers/LightGlassRectanglesPurple.jpg",
+    "wallpapers/LightGlassStripsBlue.jpg",
+    "wallpapers/LightInfinityStack.jpg",
     "wallpapers/LightMetalBand.jpg",
     "wallpapers/LightMetalRectangles.jpg",
     "wallpapers/LightMetalStack.jpg",
-    "wallpapers/LightRoundStackGold.jpg",
-    "wallpapers/LightRoundStackRed.jpg",
+    "wallpapers/LightMicrosoftPink.jpg",
+    "wallpapers/LightPlasterPlates.jpg",
+    "wallpapers/LightThinGlassStack.jpg",
     "wallpapers/LightWaves.jpg",
-    "wallpapers/LightWindowsPantone.jpg",
-];
+    "wallpapers/LightWavesBlue.jpg",
+    "wallpapers/LightWavesCyan.jpg",
+    ];
 
 const searchEngines = [
     {
@@ -60,7 +80,7 @@ function updateTime() {
 }
 
 const defaultLightWallpaper = 'wallpapers/LightGlass.jpg';
-const defaultDarkWallpaper = 'wallpapers/DarkGlassRound.jpg';
+const defaultDarkWallpaper = 'wallpapers/DrakCirclePurple.jpg';
 const defaultSearchEngine = 'Google';
 
 document.addEventListener('DOMContentLoaded', () => {
