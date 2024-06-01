@@ -103,7 +103,6 @@
             position: absolute;
             bottom: 20px;
             left: 20px;
-            filter: invert(1) grayscale(1) brightness(10);
         }
 
         .github-icon img {
@@ -114,6 +113,7 @@
 
         .github-icon img:hover {
             transform: scale(1.1);
+            filter: brightness(1.2);
         }
 
         .settings-icon {
@@ -131,6 +131,7 @@
 
         .settings-icon img:hover {
             transform: scale(1.1);
+            filter: brightness(1.2);
         }
 
         .settings-menu {
@@ -262,7 +263,7 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(0, 0, 0, 0.2);
-            padding: 20px 1.5% 20px 1.5%;
+            padding: 35px 1% 35px 1%;
             box-shadow: 0 0 5px 100px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             box-sizing: border-box;
@@ -271,7 +272,7 @@
         .preview-modal .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 20px;
+            gap: 5px;
             overflow: hidden;
             box-sizing: border-box;
         }
@@ -287,15 +288,22 @@
         .preview-modal .gallery-container {
             height: calc(100% - 50px);
             overflow-y: auto;
-            padding: 20px;
+            padding: 5px;
             box-sizing: border-box;
         }
 
         .preview-modal .gallery-item {
+            margin: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative;
+        }
+
+        .preview-modal .gallery-item:hover {
+            scale: 1.01;
+            filter: brightness(1.1);
         }
 
         .preview-modal .gallery-item img {
@@ -306,6 +314,28 @@
             border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.4);
             object-fit: cover;
+        }
+
+        .preview-modal .gallery-item .icon {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            bottom: 20%;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .preview-modal .gallery-item .icon:hover {
+            scale: 1.1;
+            filter: brightness(1.2);
+        }
+
+        .preview-modal .gallery-item .sun-icon {
+            left: 6%;
+        }
+
+        .preview-modal .gallery-item .moon-icon {
+            right: 6%;
         }
 
         .preview-modal .gallery-item span {
@@ -328,6 +358,29 @@
             z-index: 1002; 
         }
 
+        .preview-modal .icon_large {
+            width: 36px;
+            height: 36px;
+            position: absolute;
+            bottom: 5%;
+            border: 0;
+            cursor: pointer;
+            z-index: 1003; 
+        }
+
+        .preview-modal .icon_large:hover {
+            scale: 1.1;
+            filter: brightness(1.2);
+        }
+
+        .preview-modal .sun-icon_large {
+            left: 40px;
+        }
+
+        .preview-modal .moon-icon_large {
+            right: 40px;
+        }
+
         .preview-modal .close-button {
             position: absolute;
             top: 1%;
@@ -335,6 +388,10 @@
             font-size: 50px;
             color: rgba(0, 0, 0, 0.8);
             cursor: pointer;
+        }
+
+        .preview-modal .close-button:hover {
+            scale: 1.15;
         }
 
         @media (prefers-color-scheme: light) {
@@ -478,7 +535,7 @@
     </div>
 
     <div class="settings-icon">
-        <img src="settings.png" alt="Settings">
+        <img src="settings.svg" alt="Settings">
     </div>
 
     <div class="settings-menu">

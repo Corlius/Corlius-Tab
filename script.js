@@ -332,9 +332,11 @@ document.addEventListener('DOMContentLoaded', () => {
         previewModal.style.opacity = '0';
         previewModal.style.display = 'block';
         settingsMenu.style.display = 'none';
+
         setTimeout(() => {
             previewModal.style.opacity = '1';
         }, 10);
+
         if (galleryContainer.innerHTML === '') {
             wallpapers.forEach(fullPath => {
                 const fileName = fullPath.split('/').pop().split('.')[0];
@@ -353,6 +355,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 galleryContainer.appendChild(div);
             });
         }
+
+        addIconsToGallery();
+
         window.addEventListener('click', closeModalOnOutsideClick);
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
@@ -369,6 +374,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (largeImage) {
                 largeImage.remove();
                 largeImage = null;
+                const icons = previewModal.querySelectorAll('.icon_large');
+                icons.forEach(icon => icon.remove());
+                if (largeImageContainer) {
+                    previewModal.removeChild(largeImageContainer);
+                }
             }
         }, 200);
         window.removeEventListener('click', closeModalOnOutsideClick);
@@ -378,8 +388,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    
-    
+
+    // Add icons to each gallery item
+    function addIconsToGallery() {
+        const galleryItems = document.querySelectorAll('.preview-modal .gallery-item');
+
+        galleryItems.forEach(item => {
+            const sunIcon = document.createElement('img');
+            sunIcon.src = 'sun.svg';
+            sunIcon.classList.add('icon', 'sun-icon');
+
+            const moonIcon = document.createElement('img');
+            moonIcon.src = 'moon.svg';
+            moonIcon.classList.add('icon', 'moon-icon');
+
+            item.appendChild(sunIcon);
+            item.appendChild(moonIcon);
+
+            sunIcon.addEventListener('click', () => {
+                event.stopPropagation();
+                const img = item.querySelector('img');
+                document.documentElement.style.setProperty('--light-wallpaper', `url(${img.dataset.fullImage})`);
+                localStorage.setItem('lightWallpaper', img.dataset.fullImage);
+            });
+
+            moonIcon.addEventListener('click', () => {
+                event.stopPropagation();
+                const img = item.querySelector('img');
+                document.documentElement.style.setProperty('--dark-wallpaper', `url(${img.dataset.fullImage})`);
+                localStorage.setItem('darkWallpaper', img.dataset.fullImage);
+            });
+        });
+    }
+
     // Click to view original
     galleryContainer.addEventListener('click', (event) => {
         if (event.target.tagName === 'IMG') {
@@ -394,6 +435,8 @@ document.addEventListener('DOMContentLoaded', () => {
             largeImage.classList.add('large');
             largeImageContainer.appendChild(largeImage);
 
+            addWallpaperSettingIcons(largeImageContainer, img.dataset.fullImage);
+
             largeImage.addEventListener('click', (event) => {
                 event.stopPropagation();
                 largeImage.remove();
@@ -402,4 +445,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // Add icons to original picture
+    function addWallpaperSettingIcons(largeImageContainer, imgSrc) {
+        const setLightWallpaperIcon = document.createElement('img');
+        setLightWallpaperIcon.src = 'sun.svg';
+        setLightWallpaperIcon.classList.add('icon_large', 'sun-icon_large');
+        setLightWallpaperIcon.onclick = () => {
+            document.documentElement.style.setProperty('--light-wallpaper', `url(${imgSrc})`);
+            localStorage.setItem('lightWallpaper', imgSrc);
+        };
+    
+        const setDarkWallpaperIcon = document.createElement('img');
+        setDarkWallpaperIcon.src = 'moon.svg';
+        setDarkWallpaperIcon.classList.add('icon_large', 'moon-icon_large');
+        setDarkWallpaperIcon.onclick = () => {
+            document.documentElement.style.setProperty('--dark-wallpaper', `url(${imgSrc})`);
+            localStorage.setItem('darkWallpaper', imgSrc);
+        };
+    
+        largeImageContainer.appendChild(setLightWallpaperIcon);
+        largeImageContainer.appendChild(setDarkWallpaperIcon);
+    }
 });
