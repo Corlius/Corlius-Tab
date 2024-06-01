@@ -213,7 +213,7 @@
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 25px;
             padding: 5px 10px 5px 10px;
             display: flex;
@@ -285,7 +285,7 @@
         }
 
         .preview-modal .gallery-container {
-            height: calc(100% - 60px);
+            height: calc(100% - 50px);
             overflow-y: auto;
             padding: 20px;
             box-sizing: border-box;
@@ -298,39 +298,34 @@
             justify-content: center;
         }
 
-        .preview-modal .gallery img {
+        .preview-modal .gallery-item img {
             width: 100%;
             cursor: pointer;
             display: block;
             max-height: 200px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
             object-fit: cover;
-        }
-
-        .preview-modal .gallery img.large {
-            max-height: 100%;
-            width: auto;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1002;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .preview-modal .gallery img.large img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
         }
 
         .preview-modal .gallery-item span {
             margin-top: 10px;
             text-align: center;
             color: rgba(0, 0, 0, 0.8);
+            font-weight: bold;
+        }
+
+        .preview-modal img.large {
+            max-width: none;
+            width: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            z-index: 1002; 
         }
 
         .preview-modal .close-button {
@@ -392,7 +387,10 @@
             }
             .preview-modal .gallery-item span {
                 color: rgba(0, 0, 0, 0.8);
-                }
+            }
+            .preview-modal .gallery img {
+                border: 1px solid rgba(255, 255, 255, 0.4);
+            }
             .preview-modal .close-button {
                 color: rgba(0, 0, 0, 0.2);
             }
@@ -446,6 +444,9 @@
             .preview-modal .gallery-title {
                 color: rgba(255, 255, 255, 0.8);
             }
+            .preview-modal .gallery img {
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
             .preview-modal .gallery-item span {
                 color: rgba(255, 255, 255, 0.8);
                 }
@@ -496,6 +497,10 @@
             <div class="gallery" id="gallery"></div>
             <span class="close-button" id="closeModal">×</span>
         </div>
+    </div>
+
+    <div class="tray">
+        <div class="tray-icons"></div>
     </div>
 </body>
 </html>
