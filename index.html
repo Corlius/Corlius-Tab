@@ -30,7 +30,6 @@
         }
 
         .time-display {
-            color: white;
             opacity: 0.95;
             font-family: 'Futura', sans-serif;
         }
@@ -41,12 +40,9 @@
             width: 80%;
             max-width: 600px;
             border-radius: 25px;
-            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 0, 0, 0.2);
             padding: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.15s ease-in-out;
         }
 
@@ -103,9 +99,11 @@
             position: absolute;
             bottom: 20px;
             left: 20px;
+            cursor: pointer;
         }
 
         .github-icon img {
+            filter: brightness(1.05);
             width: 30px;
             height: 30px;
             transition: transform 0.15s ease-in-out;
@@ -124,6 +122,7 @@
         }
 
         .settings-icon img {
+            filter: brightness(1.05);
             width: 30px;
             height: 30px;
             transition: transform 0.15s ease-in-out;
@@ -139,10 +138,9 @@
             position: absolute;
             bottom: 70px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.7);
+            font-weight: bold;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 0, 0, 0.2);
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
@@ -152,7 +150,6 @@
         .settings-menu label {
             display: block;
             margin-bottom: 8px;
-            color: inherit;
         }
 
         .settings-menu select {
@@ -162,9 +159,6 @@
             margin-bottom: 16px;
             font-size: 14px;
             border-radius: 5px;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -200,8 +194,8 @@
             margin-top: 10px;
             margin-bottom: 10px;
             font-size: 14px;
+            font-weight: bold;
             border-radius: 5px;
-            border: 1px solid #ccc;
             cursor: pointer;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -211,15 +205,12 @@
         .tray {
             position: fixed;
             bottom: 16px;
-            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 25px;
             padding: 5px 10px 5px 10px;
             display: flex;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             justify-content: space-between;
             flex-wrap: wrap;
             transition: bottom 0.3s ease-in-out;
@@ -259,12 +250,9 @@
             left: 3%;
             right: 3%;
             border-radius: 30px;
-            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 0, 0, 0.2);
             padding: 35px 1% 35px 1%;
-            box-shadow: 0 0 5px 100px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             box-sizing: border-box;
         }
@@ -281,7 +269,6 @@
             text-align: center;
             margin-bottom: 20px;
             font-size: 2em;
-            color: rgba(0, 0, 0, 0.8);
             font-weight: bold;
         }
 
@@ -322,6 +309,7 @@
             position: absolute;
             bottom: 20%;
             border: 0;
+            filter: brightness(1.05);
             cursor: pointer;
         }
 
@@ -341,7 +329,6 @@
         .preview-modal .gallery-item span {
             margin-top: 10px;
             text-align: center;
-            color: rgba(0, 0, 0, 0.8);
             font-weight: bold;
         }
 
@@ -364,6 +351,7 @@
             position: absolute;
             bottom: 5%;
             border: 0;
+            filter: brightness(1.1);
             cursor: pointer;
             z-index: 1003; 
         }
@@ -386,7 +374,6 @@
             top: 1%;
             right: 3%;
             font-size: 50px;
-            color: rgba(0, 0, 0, 0.8);
             cursor: pointer;
         }
 
@@ -404,35 +391,41 @@
             .search-box {
                 background: rgba(255, 255, 255, 0.6);
                 border: 1px solid rgba(255, 255, 255, 0.4);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
             .search-box input[type="text"] {
-                color: #000;
-                caret-color: #000;
+                color: rgba(0, 0, 0, 0.8);
+                caret-color: rgba(0, 0, 0, 0.8);
+            }
+            .search-box input::placeholder {
+                color: rgba(0, 0, 0, 0.5);
             }
             .settings-menu {
-                background: rgba(255, 255, 255, 0.7);
+                background: rgba(255, 255, 255, 0.6);
                 border: 1px solid rgba(255, 255, 255, 0.4);
             }
-            .settings-menu select {
-                background: rgba(255, 255, 255, 0.7);
-                color: #000;
-                border: 1px solid #ccc;
-            }
             .settings-menu label {
-                color: #000;
+                color: rgba(0, 0, 0, 0.8);
+            }
+            .settings-menu select {
+                background: rgba(255, 255, 255, 0.6);
+                color: rgba(0, 0, 0, 0.8);
+                border: 1px solid rgba(255, 255, 255, 0.4);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
             .preview-button {
-                color: #000;
-                background: rgba(255, 255, 255, 0.7);
-                border-color: rgba(0, 0, 0, 0.2);
+                color: rgba(0, 0, 0, 0.8);
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.4);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             }
             .preview-button:hover {
-                background-color: rgba(0, 0, 0, 0.1);
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                background-color: rgba(0, 0, 0, 0.05);
             }
             .tray {
                 background: rgba(255, 255, 255, 0.6);
                 border: 1px solid rgba(255, 255, 255, 0.4);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
             .preview-modal {
                 background: rgba(255, 255, 255, 0.6);
@@ -461,40 +454,46 @@
                 color: white;
             }
             .search-box {
-                background: rgba(35, 35, 35, 0.7);
+                background: rgba(35, 35, 35, 0.6);
                 border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
             .search-box input[type="text"] {
-                color: #fff;
-                caret-color: #fff;
+                color: rgba(255, 255, 255, 0.8);
+                caret-color: rgba(255, 255, 255, 0.8);
+            }
+            .search-box input::placeholder {
+                color: rgba(255, 255, 255, 0.4);
             }
             .settings-menu {
-                background: rgba(35, 35, 35, 0.7);
+                background: rgba(35, 35, 35, 0.6);
                 border: 1px solid rgba(255, 255, 255, 0.3);
-            }
-            .settings-menu select {
-                background: rgba(35, 35, 35, 0.7);
-                color: #fff;
-                border: 1px solid #555;
             }
             .settings-menu label {
-                color: #fff;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            .settings-menu select {
+                background: rgba(35, 35, 35, 0.6);
+                color: rgba(255, 255, 255, 0.8);
+                border: 1px solid #555;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
             .preview-button {
-                color: #fff;
-                background: rgba(35, 35, 35, 0.7);
+                color: rgba(255, 255, 255, 0.8);
+                background: rgba(35, 35, 35, 0.1);
                 border-color: rgba(255, 255, 255, 0.2);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
             .preview-button:hover {
-                background-color: rgba(255, 255, 255, 0.2);
-                box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+                background-color: rgba(255, 255, 255, 0.05);
             }
             .tray {
-                background: rgba(35, 35, 35, 0.7);
+                background: rgba(35, 35, 35, 0.6);
                 border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             }
             .preview-modal {
-                background: rgba(35, 35, 35, 0.7);
+                background: rgba(35, 35, 35, 0.6);
                 border: 1px solid rgba(255, 255, 255, 0.3);
                 box-shadow: 0 0 5px 100px rgba(0, 0, 0, 0.3);
             }
@@ -506,7 +505,7 @@
             }
             .preview-modal .gallery-item span {
                 color: rgba(255, 255, 255, 0.8);
-                }
+            }
             .preview-modal .close-button {
                 color: rgba(255, 255, 255, 0.3);
             }
