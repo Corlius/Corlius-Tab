@@ -2,11 +2,11 @@
 
 欢迎使用 Corlius' Tab，一个干净的新标签页。
 
-![](https://pic.corlius.top/piclib-r2/2024/06/43ffee222e1cfebb3c7fb4771ef1ea88.png)
+![](https://pic.corlius.top/piclib-r2/2024/06/b685bcbfe0c5f9fe2040ebdc2957e473.jpg)
 
-![](https://pic.corlius.top/piclib-r2/2024/06/0c97a1d756d51dab82346e7ee8282cfc.png)
+![](https://pic.corlius.top/piclib-r2/2024/06/ca164f80aba4d709db66bfe94c8e0905.jpg)
 
-![](https://pic.corlius.top/piclib-r2/2024/06/9d43bda6cc3e988bd320db0f2eb1eb67.png)
+![](https://pic.corlius.top/piclib-r2/2024/06/8a9e1b085378c1af3a6070263e6473d5.jpg)
 
 ## 功能
 
