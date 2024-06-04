@@ -2,6 +2,12 @@
 
 欢迎使用 Corlius' Tab，一个干净的新标签页。
 
+![](https://pic.corlius.top/piclib-r2/2024/06/43ffee222e1cfebb3c7fb4771ef1ea88.png)
+
+![](https://pic.corlius.top/piclib-r2/2024/06/0c97a1d756d51dab82346e7ee8282cfc.png)
+
+![](https://pic.corlius.top/piclib-r2/2024/06/9d43bda6cc3e988bd320db0f2eb1eb67.png)
+
 ## 功能
 
 1. **搜索引擎选择**：
