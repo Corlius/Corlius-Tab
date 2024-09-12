@@ -26,6 +26,7 @@ const trayIconsItems = [
     { src: 'trayicons/YouTube.png', alt: 'YouTube', url: 'https://www.youtube.com/' },
     { src: 'trayicons/Bilibili.png', alt: 'Bilibili', url: 'https://www.bilibili.com/' },
     { src: 'trayicons/Disney+.png', alt: 'Disney+', url: 'https://www.disneyplus.com/' },
+    { src: 'trayicons/MacKed.png', alt: 'MacKed', url: 'https://macked.app/' },
     { src: 'trayicons/Appstorrent.png', alt: 'Appstorrent', url: 'https://appstorrent.ru/programs/' }
 ];
 
