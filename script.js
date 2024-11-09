@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Settings part
-    const settingsButton = document.querySelector('.settings-icon img');
+    const settingsButton = document.querySelector('.settings-icon');
     const settingsMenu = document.querySelector('.settings-menu');
     const searchEngineSelect = document.querySelector('#search-engine-select');
     const searchForm = document.querySelector('.search-box form');
