@@ -21,7 +21,7 @@
 // Tray items array
 const trayIconsItems = [
     { src: 'trayicons/ChatGPT.png', alt: 'ChatGPT', url: 'https://chatgpt.com/' },
-    { src: 'trayicons/AIStudio.png', alt: 'AIStudio', url: 'https://aistudio.google.com/app/prompts/1pJD5v--kDEq-gPjlqngb2ByzIcvpX7__' },
+    { src: 'trayicons/AIStudio.png', alt: 'AIStudio', url: 'https://aistudio.google.com/app/prompts/new_chat' },
     { src: 'trayicons/GitHub.png', alt: 'GitHub', url: 'https://github.com/' },
     { src: 'trayicons/YouTube.png', alt: 'YouTube', url: 'https://www.youtube.com/' },
     { src: 'trayicons/Bilibili.png', alt: 'Bilibili', url: 'https://www.bilibili.com/' },
