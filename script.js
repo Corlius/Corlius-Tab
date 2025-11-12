@@ -20,9 +20,11 @@
 
 // Tray items array
 const trayIconsItems = [
-    { src: 'trayicons/ChatGPT.png', alt: 'ChatGPT', url: 'https://chatgpt.com/' },
+    // { src: 'trayicons/ChatGPT.png', alt: 'ChatGPT', url: 'https://chatgpt.com/' },
     { src: 'trayicons/AIStudio.png', alt: 'AIStudio', url: 'https://aistudio.google.com/app/prompts/new_chat' },
+    { src: 'trayicons/Qwen.png', alt: 'Qwen', url: 'https://chat.qwen.ai/' },
     { src: 'trayicons/Z.ai.png', alt: 'Z.ai', url: 'https://chat.z.ai/' },
+    { src: 'trayicons/HuggingChat.png', alt: 'HuggingChat', url: 'https://huggingface.co/chat/' },
     { src: 'trayicons/GitHub.png', alt: 'GitHub', url: 'https://github.com/' },
     { src: 'trayicons/YouTube.png', alt: 'YouTube', url: 'https://www.youtube.com/' },
     { src: 'trayicons/Bilibili.png', alt: 'Bilibili', url: 'https://www.bilibili.com/' },
