@@ -22,11 +22,12 @@
 const trayIconsItems = [
     { src: 'trayicons/ChatGPT.png', alt: 'ChatGPT', url: 'https://chatgpt.com/' },
     { src: 'trayicons/AIStudio.png', alt: 'AIStudio', url: 'https://aistudio.google.com/app/prompts/new_chat' },
+    { src: 'trayicons/Z.ai.png', alt: 'Z.ai', url: 'https://chat.z.ai/' },
     { src: 'trayicons/GitHub.png', alt: 'GitHub', url: 'https://github.com/' },
     { src: 'trayicons/YouTube.png', alt: 'YouTube', url: 'https://www.youtube.com/' },
     { src: 'trayicons/Bilibili.png', alt: 'Bilibili', url: 'https://www.bilibili.com/' },
     // { src: 'trayicons/Disney+.png', alt: 'Disney+', url: 'https://www.disneyplus.com/' },
-    { src: 'trayicons/HeyTap.png', alt: 'HeyTap', url: 'https://cloud.heytap.com/' },
+    // { src: 'trayicons/HeyTap.png', alt: 'HeyTap', url: 'https://cloud.heytap.com/' },
     { src: 'trayicons/MacKed.png', alt: 'MacKed', url: 'https://macked.app/' },
     { src: 'trayicons/Appstorrent.png', alt: 'Appstorrent', url: 'https://appstorrent.ru/programs/' }
 ];
