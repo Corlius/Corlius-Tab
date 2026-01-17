@@ -34,6 +34,50 @@ const trayIconsItems = [
     { src: 'trayicons/Appstorrent.png', alt: 'Appstorrent', url: 'https://appstorrent.ru/programs/' }
 ];
 
+// Wallpapers array
+const wallpapers = [
+    "wallpapers/Dark-Blackhole.jpg",
+    "wallpapers/Dark-Blue-Orange.jpg",
+    "wallpapers/Dark-Circle.jpg",
+    "wallpapers/Dark-Colors.jpg",
+    "wallpapers/Dark-Cross.jpg",
+    "wallpapers/Dark-Dense.jpg",
+    "wallpapers/Dark-Glass-Bended.jpg",
+    "wallpapers/Dark-Glass-Stack-Circle-Dirt.jpg",
+    "wallpapers/Dark-Glass-Stack-Square-Dirt.jpg",
+    "wallpapers/Dark-Glass-Stack-Square-Irregular.jpg",
+    "wallpapers/Dark-Glass-Stack-Square.jpg",
+    "wallpapers/Dark-Glass-Twisted.jpg",
+    "wallpapers/Dark-Metal-Round-Down.jpg",
+    "wallpapers/Dark-Metal-Round-Up.jpg",
+    "wallpapers/Dark-Metal-Stack.jpg",
+    "wallpapers/Dark-Purple-Red.jpg",
+    "wallpapers/Dark-Shoots.jpg",
+    "wallpapers/Dark-Square-Lines.jpg",
+    "wallpapers/Dark-Stack-Twisted.jpg",
+    "wallpapers/Dark-Wave.jpg",
+    "wallpapers/Light-Angles.jpg",
+    "wallpapers/Light-Circles.jpg",
+    "wallpapers/Light-Curtain.jpg",
+    "wallpapers/Light-Glass-Gree-Edge.jpg",
+    "wallpapers/Light-Glass-Round.jpg",
+    "wallpapers/Light-Glass-Stack-Round.jpg",
+    "wallpapers/Light-Glass-Stack.jpg",
+    "wallpapers/Light-Grain.jpg",
+    "wallpapers/Light-Lines-Wave.jpg",
+    "wallpapers/Light-Marble.jpg",
+    "wallpapers/Light-Mess.jpg",
+    "wallpapers/Light-Rectangle.jpg",
+    "wallpapers/Light-Seeds.jpg",
+    "wallpapers/Light-Shade-Blue.jpg",
+    "wallpapers/Light-Shade-Orange.jpg",
+    "wallpapers/Light-Touch.jpg",
+    "wallpapers/Light-Twisted-Blue.jpg",
+    "wallpapers/Light-Twisted.jpg",
+    "wallpapers/Light-Wave-Silk.jpg",
+    "wallpapers/Light-Wave.jpg"
+];
+
 // Search engings array
 const searchEngines = [
     {
@@ -53,58 +97,6 @@ const searchEngines = [
     }
 ];
 
-// Wallpapers array
-const wallpapers = [
-    "wallpapers/DarkAbstractReflection.jpg",
-    "wallpapers/DarkGlassCircleWithReflection.jpg",
-    "wallpapers/DarkGlassDimond.jpg",
-    "wallpapers/DarkGlassDropsPurple.jpg",
-    "wallpapers/DarkGlassRectangles.jpg",
-    "wallpapers/DarkGlassRectanglesPurple.jpg",
-    "wallpapers/DarkGlassRound.jpg",
-    "wallpapers/DarkGlassRoundPurple.jpg",
-    "wallpapers/DarkGlassRounded.jpg",
-    "wallpapers/DarkGlassTwistedWithReflection.jpg",
-    "wallpapers/DarkMetalBand.jpg",
-    "wallpapers/DarkMetalCurved.jpg",
-    "wallpapers/DarkMetalRectangles.jpg",
-    "wallpapers/DarkMetalRectanglesPurple.jpg",
-    "wallpapers/DarkMetalStack.jpg",
-    "wallpapers/DarkMicrosoftBlue.jpg",
-    "wallpapers/DarkMicrosoftPurple.jpg",
-    "wallpapers/DarkMultiColorStack.jpg",
-    "wallpapers/DarkPlanetWithRings.jpg",
-    "wallpapers/DarkRayBall.jpg",
-    "wallpapers/DarkWaves.jpg",
-    "wallpapers/DarkWindowsPantone.jpg",
-    "wallpapers/DrakCirclePurple.jpg",
-    "wallpapers/LightAbstractPurple.jpg",
-    "wallpapers/LightAbstractReflection.jpg",
-    "wallpapers/LightBallBlueYellow.jpg",
-    "wallpapers/LightCandyCube.jpg",
-    "wallpapers/LightColoredSmokes.jpg",
-    "wallpapers/LightGlass.jpg",
-    "wallpapers/LightGlassBallBlue.jpg",
-    "wallpapers/LightGlassCircleBlur.jpg",
-    "wallpapers/LightGlassCube.jpg",
-    "wallpapers/LightGlassCurved.jpg",
-    "wallpapers/LightGlassOcean.jpg",
-    "wallpapers/LightGlassPaved.jpg",
-    "wallpapers/LightGlassPurple.jpg",
-    "wallpapers/LightGlassPurpleBands.jpg",
-    "wallpapers/LightGlassStripsBlue.jpg",
-    "wallpapers/LightInfinityStack.jpg",
-    "wallpapers/LightMetalBand.jpg",
-    "wallpapers/LightMetalRectangles.jpg",
-    "wallpapers/LightMetalStack.jpg",
-    "wallpapers/LightMicrosoftPink.jpg",
-    "wallpapers/LightPlasterPlates.jpg",
-    "wallpapers/LightThinGlassStack.jpg",
-    "wallpapers/LightWaves.jpg",
-    "wallpapers/LightWavesBlue.jpg",
-    "wallpapers/LightWavesCyan.jpg",
-];
-
 
 
 //---------------------------------------------------------------------
@@ -122,8 +114,8 @@ function updateTime() {
 }
 
 // Default values
-const defaultLightWallpaper = 'wallpapers/LightGlass.jpg';
-const defaultDarkWallpaper = 'wallpapers/DrakCirclePurple.jpg';
+const defaultLightWallpaper = 'wallpapers/Light-Glass-Stack.jpg';
+const defaultDarkWallpaper = 'wallpapers/Dark-Glass-Twisted.jpg';
 const defaultSearchEngine = 'Google';
 
 // Selector values
@@ -356,6 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const span = document.createElement('span');
                 span.textContent = fileName.replace(/^[^-]*-/, '');
+                span.textContent = span.textContent.replaceAll('-', ' ');
                 div.appendChild(span);
                 galleryContainer.appendChild(div);
             });
